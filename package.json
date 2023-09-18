@@ -4,9 +4,10 @@
   "description": "A NodeJS Script that allows us to connect to Gmail account, fetch emails, filter and modify messages based on rules",
   "main": "index.js",
   "scripts": {
-    "test": "npm test",
-    "getmessages": "node messages.js",
-    "getlabels": "node labels.js"
+    "getmessages": "node messageImporter.js",
+    "getlabels": "node labelsImporter.js",
+    "importer" : "node index.js",
+    "messageModifier": "node modifier.js"
   },
   "author": "Keerthana V",
   "license": "ISC",
