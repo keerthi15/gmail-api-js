@@ -1,0 +1,25 @@
+{
+  "name": "happyfox-gmail-api",
+  "version": "1.0.0",
+  "description": "A NodeJS Script that allows us to connect to Gmail account, fetch emails, filter and modify messages based on rules",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "getmessages": "node messages.js",
+    "getlabels": "node labels.js"
+  },
+  "author": "Keerthana V",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "googleapis": "^105.0.0",
+    "mysql2": "^3.6.1",
+    "sequelize": "^6.33.0",
+    "striptags": "^3.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "eslint-config-google": "^0.14.0",
+    "sequelize-auto": "^0.8.8"
+  }
+}
