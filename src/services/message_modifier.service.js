@@ -58,7 +58,7 @@ const getModifyLabelParams = async (userId, messageIds, messageActions, labels) 
 
     // Include additional labels if provided
     if (labels.length) {
-        addLabels = [ ...labels ];
+        addLabels = [ ...addLabels, ...labels ];
     }
 
     // Get unique labels to add and remove from messages
