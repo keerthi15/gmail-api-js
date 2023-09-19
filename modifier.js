@@ -3,24 +3,24 @@ const { executeActions } = require('./src/services/message_modifier.service');
 const { getMessages } = require('./src/services/messages.service');
 const { getKeyValMap } = require('./src/handlers/utils');
 
-const run = async () => {
-    // Sample input payload for modifying the status of messages
-    const inputPayload = {
-        'condition': {
-            'SUBJECT': {
-                'data': 'Software',
-                'operation': 'CONTAINS',
-            },
-            'DATETIME': {
-                'data': 1694884295,
-                'operation': 'GREATER',
-            },
+// Sample input payload for modifying the status of messages
+const inputPayload = {
+    'condition': {
+        'MESSAGE': {
+            'data': 'Developer',
+            'operation': 'CONTAINS',
         },
-        'predicate': 'ALL',
-        'messageActions': [ 'READ' ],
-        'labels': [ 'Interview' ],
-    };
+        'DATETIME': {
+            'data': 1694892555,
+            'operation': 'GREATER',
+        },
+    },
+    'predicate': 'ANY',
+    'messageActions': [ 'READ' ],
+    'labels': [ 'Dev Test' ],
+};
 
+const run = async (inputPayload) => {
     // Building the query params
     // to fetch the messages that satisfy the conditions
     const queryParams = prepareQuery(inputPayload);
@@ -42,6 +42,10 @@ const run = async () => {
     process.exit(0);
 };
 
-run()
+run(inputPayload)
     .then(() => console.log('Process completed'))
     .catch((err) => console.log(err));
+
+module.exports = {
+    run,
+};

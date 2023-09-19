@@ -1,6 +1,9 @@
 const striptags = require('striptags');
 const { saveMessages } = require('../services/messages.service');
 
+// eslint-disable-next-line max-len
+const MESSAGE_IMPORT_LIMIT= 50; // Hardcoded value of no. of messages to be imported.
+
 /* Specific fields of the message to be imported.
  * Ideally can be a part of the environment file
  */
@@ -33,7 +36,7 @@ const messageProcessor = async (gmail, clientId) => {
 const importMessages = async (gmail) => {
     const res = await gmail.users.messages.list({
         userId: 'me',
-        maxResults: 10, // Hardcoded value of no. of messages to be imported.
+        maxResults: MESSAGE_IMPORT_LIMIT,
     });
 
     const messageList = res.data.messages;
@@ -172,5 +175,6 @@ const getEmailAddress = (address) => {
 
 module.exports = {
     messageProcessor,
+    importMessages,
 };
 

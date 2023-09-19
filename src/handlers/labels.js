@@ -39,4 +39,5 @@ const importLabels = async (gmailClient) => {
 
 module.exports = {
     labelsProcessor,
+    importLabels,
 };
